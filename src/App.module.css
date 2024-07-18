@@ -4,6 +4,21 @@
     min-height: 100vh;
 }
 
+.Main {
+    padding-top: 150px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cinzel', serif;
+    color: #254441;
+    font-weight: lighter;
+}
+
 a {
     color: #254441;
     transition: color ease-in-out 0.3s;

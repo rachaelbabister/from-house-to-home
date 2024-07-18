@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, NavLink } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/FromHouseToHome-logo.jpg";
 import styles from "../styles/NavBar.module.css";
 
