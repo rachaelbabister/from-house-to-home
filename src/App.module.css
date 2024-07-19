@@ -32,12 +32,16 @@ a:hover {
 
 i {
     color: #b3cbb5;
-    padding-right: 4px;
-    padding-left: 8px;
+    padding-right: 6px;
+    padding-left: 10px;
 }
 
 i:hover {
     transition: color ease-in-out 0.3s;
-    color: #cedfd0;
+    color: #254441;
 }
 
+a:hover i {
+    transition: color ease-in-out 0.3s;
+    color: #254441;
+}
