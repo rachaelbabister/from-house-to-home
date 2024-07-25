@@ -27,7 +27,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #b3cbb5;
+    color: #d77A61;
 }
 
 i {
@@ -38,10 +38,17 @@ i {
 
 i:hover {
     transition: color ease-in-out 0.3s;
-    color: #254441;
+    color: #566967;
 }
 
 a:hover i {
     transition: color ease-in-out 0.3s;
-    color: #254441;
+    color: #566967;
+}
+
+/* CONTENT CSS */
+
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
 }
