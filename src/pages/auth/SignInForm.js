@@ -13,9 +13,10 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignUpInForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm() {
-    // const setCurrentUser = useSetCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
     // useRedirect('loggedIn')
 
     const [signInData, setSignInData] = useState({
@@ -32,9 +33,9 @@ function SignInForm() {
         event.preventDefault();
         try {
             const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-            // setCurrentUser(data.user);
+            setCurrentUser(data.user);
             // setTokenTimestamp(data);
-            history.goBack();
+            history.push("/");
         } catch (err) {
             setErrors(err.response?.data);
         }
@@ -88,7 +89,7 @@ function SignInForm() {
                                 </Alert>
                             ))}
                             <Button
-                                className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+                                className={`${btnStyles.Button} ${btnStyles.Wide}`}
                                 type="submit">
                                 Sign in
                             </Button>
@@ -101,7 +102,7 @@ function SignInForm() {
                     </Container>
                     <Container className={`mt-3 ${appStyles.Content}`}>
                         <Link className={styles.Link} to="/signup">
-                            Don't have an account? <span>Sign up here.</span>
+                            Need to register an account? <span>Sign up here.</span>
                         </Link>
                     </Container>
                 </Col>
