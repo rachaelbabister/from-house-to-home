@@ -47,6 +47,16 @@ a:hover i {
     color: #566967;
 }
 
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+.LabelSelector {
+    cursor: pointer !important;
+}
+
 /* CONTENT CSS */
 
 .Content {
