@@ -51,7 +51,7 @@ const NavBar = () => {
             <NavLink
                 className={styles.NavLink}
                 to={`/profiles/${currentUser?.profile_id}`}>
-                <i class="fa-regular fa-circle-user"></i>Profile
+                <i className="fa-regular fa-circle-user"></i>Profile
             </NavLink>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
                 <i className="fa-solid fa-right-from-bracket"></i>Sign out
