@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import {
+    Form,
+    Button,
+    Row,
+    Col,
+    Container,
+    Alert
+} from "react-bootstrap";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -17,7 +19,6 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();
-    // useRedirect('loggedIn')
 
     const [signInData, setSignInData] = useState({
         username: "",
@@ -34,7 +35,6 @@ function SignInForm() {
         try {
             const {data} = await axios.post("/dj-rest-auth/login/", signInData);
             setCurrentUser(data.user);
-            // setTokenTimestamp(data);
             history.push("/");
         } catch (err) {
             setErrors(err.response?.data);
@@ -53,7 +53,7 @@ function SignInForm() {
             <Row className={`my-auto`}>
                 <Col className="my-auto py-2 p-md-2 mx-auto" md={8}>
                     <Container className={`${appStyles.Content} p-4 `}>
-                        <h2 className={styles.Header}>Sign In</h2>
+                        <h1 className={styles.Header}>Sign In</h1>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="username">
                                 <Form.Label className="sr-only">Username</Form.Label>
