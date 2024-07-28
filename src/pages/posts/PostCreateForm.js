@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
     Form,
     Button,
@@ -26,11 +26,28 @@ function PostCreateForm() {
         title: "",
         content: "",
         image: "",
+        category: "",
     });
-    const { title, content, image } = postData;
+    const { title, content, image, category } = postData;
+
+    const [categories, setCategories] = useState([]);
 
     const imageInput = useRef(null);
     const history = useHistory();
+
+    // Fetch categories from the API 
+        useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch("https://home-api-58bb6b7692c8.herokuapp.com/category/");
+                const data = await response.json();
+                if (Array.isArray(data.results)) {
+                    setCategories(data.results);
+                }
+            } catch (err) {}
+        };
+        fetchCategories();
+    }, []);
 
     const handleChange = (event) => {
         setPostData({
@@ -54,17 +71,11 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append("title", title);
-        formData.append("content", content);
-
-        // Only if the image has been selected
-        if (imageInput.current.files[0]) {
-            formData.append("image", imageInput.current.files[0]);
-        }
-
-        // Log the form data for debugging
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        formData.append("content", content)
+        formData.append("image", imageInput.current.files[0]);
+        if (postData.category) {
+            formData.append("category", postData.category);
+        };
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -109,6 +120,28 @@ function PostCreateForm() {
                     {message}
                 </Alert>
             ))}
+
+            <Form.Group>
+                <Form.Label>Category</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="category"
+                    value={category}
+                    onChange={handleChange}
+                >
+                    <option value="">Select a Category</option>
+                    {categories.map((category) => (
+                        <option key={category.id} value={category.name}>
+                        {category.name}
+                        </option>
+                    ))}
+                </Form.Control>
+            </Form.Group>
+            {errors?.category?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+                ))}
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Delete}`}
