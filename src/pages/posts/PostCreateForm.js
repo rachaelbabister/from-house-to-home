@@ -55,7 +55,16 @@ function PostCreateForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", imageInput.current.files[0]);
+
+        // Only if the image has been selected
+        if (imageInput.current.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
+
+        // Log the form data for debugging
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
