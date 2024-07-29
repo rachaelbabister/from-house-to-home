@@ -44,8 +44,11 @@ function PostCreateForm() {
                 if (Array.isArray(data.results)) {
                     setCategories(data.results);
                 }
-            } catch (err) {}
+            } catch (err) {
+                console.error('Failed to fetch categories', err)
+            }
         };
+
         fetchCategories();
     }, []);
 
