@@ -71,7 +71,7 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append("title", title);
-        formData.append("content", content)
+        formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
         if (postData.category) {
             formData.append("category", postData.category);
