@@ -2,16 +2,19 @@ import React, { useState, useRef } from "react";
 import { Tooltip, Overlay } from "react-bootstrap";
 
 function ToolTip({ id, title, children, placement }) {
-    const [show] = useState(false);
+    const [show, setShow] = useState(false);
     const target = useRef(null);
 
     return (
         <>
-            <span ref={target} style={{ cursor: "pointer" }}>
+            <span
+                ref={target}
+                onMouseEnter={() => setShow(true)}
+                onMouseLeave={() => setShow(false)}
+                style={{ cursor: "pointer" }}>
                 {children}
             </span>
-            boolean ?
-            <Overlay target={target.current} show={show} placement="top">
+            <Overlay target={target.current} show={show} placement={placement}>
                 {(props) => (
                     <Tooltip id={id} {...props}>
                         {title}
