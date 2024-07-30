@@ -18,6 +18,7 @@ h6 {
     font-family: 'Cinzel', serif;
     color: #254441;
     font-weight: lighter;
+    text-transform: lowercase;
 }
 
 a {
