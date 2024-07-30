@@ -102,15 +102,15 @@ const Post = (props) => {
                 {content && <Card.Text>{content}</Card.Text>}
                 <div className={styles.Divider}></div>
                 <Row>
-                    <Col md={4}>
+                    <Col md={8}>
                         {category_name && (
-                            <Card.Text className="text-muted">
+                            <Card.Text className="text-muted text-left">
                                 Category: {category_name}
                             </Card.Text>
                         )}
                     </Col>
-                    <Col md={{ span: 4, offset: 4 }}>
-                        <div className={styles.PostBar}>
+                    <Col md={4}>
+                        <div className="text-right">
                             {is_owner ? (
                                 <ToolTip
                                     id="tt-own"
