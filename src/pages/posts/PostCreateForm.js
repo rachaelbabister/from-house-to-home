@@ -35,17 +35,19 @@ function PostCreateForm() {
     const imageInput = useRef(null);
     const history = useHistory();
 
-    // Fetch categories from the API 
-        useEffect(() => {
+    // Fetch categories from the API
+    useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://home-api-58bb6b7692c8.herokuapp.com/category/");
+                const response = await fetch(
+                    "https://home-api-58bb6b7692c8.herokuapp.com/category/"
+                );
                 const data = await response.json();
                 if (Array.isArray(data.results)) {
                     setCategories(data.results);
                 }
             } catch (err) {
-                console.error('Failed to fetch categories', err)
+                console.error("Failed to fetch categories", err);
             }
         };
 
@@ -78,7 +80,7 @@ function PostCreateForm() {
         formData.append("image", imageInput.current.files[0]);
         if (postData.category) {
             formData.append("category", postData.category);
-        };
+        }
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -130,21 +132,15 @@ function PostCreateForm() {
                     as="select"
                     name="category"
                     value={category}
-                    onChange={handleChange}
-                >
+                    onChange={handleChange}>
                     <option value="">Select a Category</option>
                     {categories.map((category) => (
                         <option key={category.id} value={category.name}>
-                        {category.name}
+                            {category.name}
                         </option>
                     ))}
                 </Form.Control>
             </Form.Group>
-            {errors?.category?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-                ))}
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Delete}`}
@@ -170,7 +166,6 @@ function PostCreateForm() {
                                         <Image
                                             className={appStyles.Image}
                                             src={image}
-                                            rounded
                                         />
                                     </figure>
                                     <div>

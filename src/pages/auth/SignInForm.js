@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import {
-    Form,
-    Button,
-    Row,
-    Col,
-    Container,
-    Alert
-} from "react-bootstrap";
+import { Form, Button, Row, Col, Container, Alert } from "react-bootstrap";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -33,7 +26,10 @@ function SignInForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+            const { data } = await axios.post(
+                "/dj-rest-auth/login/",
+                signInData
+            );
             setCurrentUser(data.user);
             history.push("/");
         } catch (err) {
@@ -56,7 +52,9 @@ function SignInForm() {
                         <h1 className={styles.Header}>Sign In</h1>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="username">
-                                <Form.Label className="sr-only">Username</Form.Label>
+                                <Form.Label className="sr-only">
+                                    Username
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Username"
@@ -73,7 +71,9 @@ function SignInForm() {
                             ))}
 
                             <Form.Group className="mb-3" controlId="password">
-                                <Form.Label className="sr-only">Password</Form.Label>
+                                <Form.Label className="sr-only">
+                                    Password
+                                </Form.Label>
                                 <Form.Control
                                     type="password"
                                     placeholder="Password"
@@ -94,7 +94,10 @@ function SignInForm() {
                                 Sign in
                             </Button>
                             {errors.non_field_errors?.map((message, idx) => (
-                                <Alert key={idx} variant="warning" className="mt-3">
+                                <Alert
+                                    key={idx}
+                                    variant="warning"
+                                    className="mt-3">
                                     {message}
                                 </Alert>
                             ))}
@@ -102,7 +105,8 @@ function SignInForm() {
                     </Container>
                     <Container className={`mt-3 ${appStyles.Content}`}>
                         <Link className={styles.Link} to="/signup">
-                            Need to register an account? <span>Sign up here.</span>
+                            Need to register an account?{" "}
+                            <span>Sign up here.</span>
                         </Link>
                     </Container>
                 </Col>

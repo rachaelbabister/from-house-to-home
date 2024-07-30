@@ -5,14 +5,7 @@ import styles from "../../styles/SignUpInForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 
-import {
-    Form,
-    Button,
-    Col,
-    Row,
-    Container,
-    Alert,
-} from "react-bootstrap";
+import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 
 const SignUpForm = () => {
@@ -108,6 +101,12 @@ const SignUpForm = () => {
                                     {message}
                                 </Alert>
                             ))}
+
+                            <Button
+                                className={`${btnStyles.Button} ${btnStyles.Wide}`}
+                                type="submit">
+                                Sign up
+                            </Button>
                             {errors.non_field_errors?.map((message, idx) => (
                                 <Alert
                                     variant="warning"
@@ -116,12 +115,6 @@ const SignUpForm = () => {
                                     {message}
                                 </Alert>
                             ))}
-
-                            <Button
-                                className={`${btnStyles.Button} ${btnStyles.Wide}`}
-                                type="submit">
-                                Sign up
-                            </Button>
                         </Form>
                     </Container>
                     <Container className={`mt-3 ${appStyles.Content}`}>
