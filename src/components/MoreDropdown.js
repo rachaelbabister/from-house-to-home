@@ -1,12 +1,13 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
+import appStyles from "../App.module.css";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis-v"
+    className={`fas fa-ellipsis-v ${appStyles.LabelSelector} ${styles.OrangeIcons}`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -36,7 +37,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className={`fas fa-trash ${styles.Icons} ${styles.TrashIcon}`} />
+          <i className={`fas fa-trash ${styles.Icons} ${styles.OrangeIcons}`} />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
