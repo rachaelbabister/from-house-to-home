@@ -3,25 +3,29 @@
     border: none;
     margin-bottom: 16px;
     text-align: center;
-  }
+}
 
-  .Post figure,
-  h5 {
+.Post figure,
+h5 {
     margin: 0 0;
-  }
-  
-  .Icon {
-    color: #d77a61;
-  }
-  
-  .Icon:hover {
-    color: #566967;
-  }
-  
-  .IconOutline:hover {
-    color: #d77a61;
-  }
+}
 
-  .CardImage {
+.Icon {
+    color: #d77a61;
+}
+
+.Icon:hover {
+    color: #566967;
+}
+
+.IconOutline:hover {
+    color: #d77a61;
+}
+
+.CardImage {
     border-radius: 0px;
-  }
+}
+
+.DateTime {
+    font-size: 1rem;
+}

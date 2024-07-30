@@ -1,5 +1,10 @@
 import React from "react";
-import { Card, Media } from "react-bootstrap";
+import {
+    Card,
+    Media,
+    Row,
+    Col,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/Post.module.css";
@@ -21,6 +26,7 @@ const Post = (props) => {
         content,
         image,
         updated_on,
+        category_name,
         postPage,
         setPosts,
     } = props;
@@ -76,51 +82,70 @@ const Post = (props) => {
                         <Avatar src={profile_image} height={55} />
                         {owner}
                     </Link>
-                    <div className="d-flex align-items-center">
+                    <div className={`d-flex align-items-center ${styles.DateTime}`}>
                         <span>{updated_on}</span>
                         {is_owner && postPage && "..."}
                     </div>
                 </Media>
             </Card.Body>
             <Link to={`/posts/${id}`}>
-                <Card.Img className={styles.CardImage} src={image} alt={title} />
+                <Card.Img
+                    className={styles.CardImage}
+                    src={image}
+                    alt={title}
+                />
             </Link>
             <Card.Body>
                 {title && (
                     <Card.Title className="text-center">{title}</Card.Title>
                 )}
                 {content && <Card.Text>{content}</Card.Text>}
-                <div className={styles.PostBar}>
-                    {is_owner ? (
-                        <ToolTip
-                            id="tt-own"
-                            title="You can't like your own post"
-                            placement="top">
-                            <i className="far fa-heart" />
-                        </ToolTip>
-                    ) : like_id ? (
-                        <span onClick={handleUnlike}>
-                            <i className={`fas fa-heart ${styles.Icon}`} />
-                        </span>
-                    ) : currentUser ? (
-                        <span onClick={handleLike}>
-                            <i
-                                className={`far fa-heart ${styles.IconOutline}`}
-                            />
-                        </span>
-                    ) : (
-                        <ToolTip id="tt-signin" title="Sign in to like posts">
-                            <i className="far fa-heart" />
-                        </ToolTip>
-                    )}
-                    {likes_count}
-                    <Link to={`/posts/${id}`}>
-                        <i
-                            className={`far fa-comment-dots ${styles.IconOutline}`}
-                        />
-                    </Link>
-                    {comments_count}
-                </div>
+                <Row>
+                    <Col md={4}>
+                        {category_name && (
+                            <Card.Text className="text-muted">
+                                Category: {category_name}
+                            </Card.Text>
+                        )}
+                    </Col>
+                    <Col md={{ span: 4, offset: 4 }}>
+                        <div className={styles.PostBar}>
+                            {is_owner ? (
+                                <ToolTip
+                                    id="tt-own"
+                                    title="You can't like your own post"
+                                    placement="top">
+                                    <i className="far fa-heart" />
+                                </ToolTip>
+                            ) : like_id ? (
+                                <span onClick={handleUnlike}>
+                                    <i
+                                        className={`fas fa-heart ${styles.Icon}`}
+                                    />
+                                </span>
+                            ) : currentUser ? (
+                                <span onClick={handleLike}>
+                                    <i
+                                        className={`far fa-heart ${styles.IconOutline}`}
+                                    />
+                                </span>
+                            ) : (
+                                <ToolTip
+                                    id="tt-signin"
+                                    title="Sign in to like posts">
+                                    <i className="far fa-heart" />
+                                </ToolTip>
+                            )}
+                            {likes_count}
+                            <Link to={`/posts/${id}`}>
+                                <i
+                                    className={`far fa-comment-dots ${styles.IconOutline}`}
+                                />
+                            </Link>
+                            {comments_count}
+                        </div>
+                    </Col>
+                </Row>
             </Card.Body>
         </Card>
     );
