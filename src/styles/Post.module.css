@@ -1,0 +1,23 @@
+.Post {
+    background-color: #ffffff;
+    border: none;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .Post figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Icon {
+    color: #d77a61;
+  }
+  
+  .Icon:hover {
+    color: #f5f5f5;
+  }
+  
+  .IconOutline:hover {
+    color: #d77a61;
+  }
