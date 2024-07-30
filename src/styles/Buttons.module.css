@@ -5,11 +5,11 @@
     border-color: transparent;
     font-weight: bold;
     padding: 4px 10px;
-    margin-left: 2px;
     margin-right: 2px;
     min-width: 75px;
     background-color: #b3cbb5;
     color: #254441;
+    border-radius: 2px;
 }
 
 .Button:hover {
@@ -32,7 +32,7 @@
 }
 
 .Wide {
-    padding: 10px 50px;
+    padding: 8px 50px;
     width: 100%;
 }
 

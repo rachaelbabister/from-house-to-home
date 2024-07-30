@@ -21,3 +21,7 @@
   .IconOutline:hover {
     color: #d77a61;
   }
+
+  .CardImage {
+    border-radius: 0px;
+  }
