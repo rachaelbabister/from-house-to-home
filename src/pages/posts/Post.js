@@ -97,9 +97,10 @@ const Post = (props) => {
             </Link>
             <Card.Body>
                 {title && (
-                    <Card.Title className="text-center">{title}</Card.Title>
+                    <Card.Title className={`text-center ${styles.CardTitle}`}>{title}</Card.Title>
                 )}
                 {content && <Card.Text>{content}</Card.Text>}
+                <div className={styles.Divider}></div>
                 <Row>
                     <Col md={4}>
                         {category_name && (
