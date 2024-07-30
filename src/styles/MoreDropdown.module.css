@@ -1,0 +1,19 @@
+.DropdownItem {
+    display: inline-block;
+    max-width: 50%;
+    padding: 0px;
+  }
+  
+  .Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
+
+  .Icons {
+    font-size: 25px;
+  }
+
+  .TrashIcon {
+    color: #d77a61;
+  }

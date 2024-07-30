@@ -1,17 +1,14 @@
-import React from "react";
-import {
-    Card,
-    Media,
-    Row,
-    Col,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Card, Media, Row, Col } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";
 import ToolTip from "../../components/ToolTip";
+import ConfirmDelete from "../../components/ConfirmDelete";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Post = (props) => {
     const {
@@ -33,6 +30,23 @@ const Post = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    const [showConfirm, setShowConfirm] = useState(false);
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+    };
+
+    const handleDelete = async () => {
+        setShowConfirm(false);
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handleLike = async () => {
         try {
@@ -82,9 +96,15 @@ const Post = (props) => {
                         <Avatar src={profile_image} height={55} />
                         {owner}
                     </Link>
-                    <div className={`d-flex align-items-center ${styles.DateTime}`}>
+                    <div
+                        className={`d-flex align-items-center ${styles.DateTime}`}>
                         <span>{updated_on}</span>
-                        {is_owner && postPage && "..."}
+                        {is_owner && postPage && (
+                            <MoreDropdown
+                                handleEdit={handleEdit}
+                                handleDelete={() => setShowConfirm(true)}
+                            />
+                        )}
                     </div>
                 </Media>
             </Card.Body>
@@ -97,7 +117,9 @@ const Post = (props) => {
             </Link>
             <Card.Body>
                 {title && (
-                    <Card.Title className={`text-center ${styles.CardTitle}`}>{title}</Card.Title>
+                    <Card.Title className={`text-center ${styles.CardTitle}`}>
+                        {title}
+                    </Card.Title>
                 )}
                 {content && <Card.Text>{content}</Card.Text>}
                 <div className={styles.Divider}></div>
@@ -148,6 +170,14 @@ const Post = (props) => {
                     </Col>
                 </Row>
             </Card.Body>
+
+            <ConfirmDelete
+                show={showConfirm}
+                onHide={() => setShowConfirm(false)}
+                onConfirm={handleDelete}
+                title="Deleting Post"
+                body="Are you sure you want to delete this post?"
+            />
         </Card>
     );
 };
