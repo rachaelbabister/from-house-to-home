@@ -43,3 +43,5 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     </Dropdown>
   );
 };
+
+export default MoreDropdown;
