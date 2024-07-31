@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils"
+
 import Post from "./Post";
+import Asset from "../../components/Asset"
 import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
 
@@ -52,14 +56,20 @@ function PostPage() {
                         "Comments"
                     ) : null}
                     {comments.results.length ? (
-                        comments.results.map((comment) => (
-                            <Comment
-                                key={comment.id}
-                                {...comment}
-                                setPost={setPost}
-                                setComments={setComments}
-                            />
-                        ))
+                        <InfiniteScroll
+                            dataLength={comments.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!comments.next}
+                            next={() => fetchMoreData(comments, setComments)}>
+                            {comments.results.map((comment) => (
+                                <Comment
+                                    key={comment.id}
+                                    {...comment}
+                                    setPost={setPost}
+                                    setComments={setComments}
+                                />
+                            ))}
+                        </InfiniteScroll>
                     ) : currentUser ? (
                         <span>No comments yet, be the first to comment!</span>
                     ) : (
