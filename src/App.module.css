@@ -32,10 +32,6 @@ a:hover {
     color: #d77a61;
 }
 
-a:active {
-    background-color: #d77a61 !important;
-}
-
 i {
     color: #b3cbb5;
     padding-right: 6px;
