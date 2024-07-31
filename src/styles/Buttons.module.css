@@ -40,3 +40,25 @@
     background-color: #d77a61;
     color: #f5f5f5;
 }
+
+.Follow {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #566967;
+    color: #f5f5f5;
+}
+
+.Follow:hover {
+    background-color: #d77a61;
+}
+
+.UnFollow {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #d77a61;
+}
+
+.UnFollow:hover {
+    background-color: #566967;
+    color: #f5f5f5;
+}
