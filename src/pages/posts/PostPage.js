@@ -6,12 +6,13 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { fetchMoreData } from "../../utils/utils"
+import { fetchMoreData } from "../../utils/utils";
 
 import Post from "./Post";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostPage() {
     const { id } = useParams();
@@ -41,7 +42,7 @@ function PostPage() {
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <p>Popular profiles for mobile</p>
+                <PopularProfiles mobile />
                 <Post {...post.results[0]} setPosts={setPost} postPage />
                 <Container className={`${appStyles.Content} mb-5`}>
                     {currentUser ? (
@@ -57,11 +58,7 @@ function PostPage() {
                     ) : null}
                     {comments.results.length ? (
                         <InfiniteScroll
-                            dataLength={comments.results.length}
-                            loader={<Asset spinner />}
-                            hasMore={!!comments.next}
-                            next={() => fetchMoreData(comments, setComments)}>
-                            {comments.results.map((comment) => (
+                            children={comments.results.map((comment) => (
                                 <Comment
                                     key={comment.id}
                                     {...comment}
@@ -69,16 +66,20 @@ function PostPage() {
                                     setComments={setComments}
                                 />
                             ))}
-                        </InfiniteScroll>
+                            dataLength={comments.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!comments.next}
+                            next={() => fetchMoreData(comments, setComments)}
+                        />
                     ) : currentUser ? (
-                        <span>No comments yet, be the first to comment!</span>
+                        <span>No comments yet, be the first to comment</span>
                     ) : (
                         <span>No comments... yet</span>
                     )}
                 </Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-                Popular profiles for desktop
+                <PopularProfiles />
             </Col>
         </Row>
     );
