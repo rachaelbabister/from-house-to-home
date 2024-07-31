@@ -26,14 +26,6 @@ const NavBar = () => {
         }
     };
 
-    const addPostIcon = (
-        <NavLink
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to="/posts/create">
-            <i className="fa-solid fa-square-plus"></i>New Post
-        </NavLink>
-    );
     const loggedInIcons = (
         <>
             <NavLink
@@ -94,7 +86,6 @@ const NavBar = () => {
                         <img src={logo} alt="logo" height="100" />
                     </Navbar.Brand>
                 </NavLink>
-                {currentUser && addPostIcon}
                 <Navbar.Toggle
                     ref={ref}
                     onClick={() => setExpanded(!expanded)}
