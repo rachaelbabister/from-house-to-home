@@ -48,7 +48,7 @@ const Comment = (props) => {
             }));
             setShowConfirm(false); // Close modal after deletion
         } catch (err) {
-            console.log(err); // Add error handling if needed
+            // console.log(err);
         }
     };
 
