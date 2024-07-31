@@ -13,6 +13,7 @@ import NoResults from "../../assets/search.webp";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostsPage({ message, filter = "" }) {
     const currentUser = useCurrentUser();
@@ -136,7 +137,7 @@ function PostsPage({ message, filter = "" }) {
                 )}
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-                <p></p>
+                <PopularProfiles />
             </Col>
         </Row>
     );
