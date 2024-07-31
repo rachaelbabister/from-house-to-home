@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container, Button, Image, Form } from "react-bootstrap";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/search.webp";

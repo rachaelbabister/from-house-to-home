@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+
+import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
 
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { axiosRes } from "../../api/axiosDefaults";
 import MoreDropdown from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 import ConfirmDelete from "../../components/ConfirmDelete";

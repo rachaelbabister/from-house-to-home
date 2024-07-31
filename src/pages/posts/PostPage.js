@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row, Container } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
+
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";

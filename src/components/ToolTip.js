@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import { Tooltip, Overlay } from "react-bootstrap";
+import Tooltip from "react-bootstrap/Tooltip";
+import Overlay from "react-bootstrap/Overlay";
 
 function ToolTip({ id, title, children, placement }) {
     const [show, setShow] = useState(false);

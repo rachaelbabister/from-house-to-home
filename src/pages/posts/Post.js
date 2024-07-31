@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { Card, Media, Row, Col } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
 
 import styles from "../../styles/Post.module.css";
 import Avatar from "../../components/Avatar";

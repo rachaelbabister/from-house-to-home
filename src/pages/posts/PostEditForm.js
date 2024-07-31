@@ -1,19 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
-import {
-    Form,
-    Button,
-    Row,
-    Col,
-    Container,
-    Alert,
-    Image,
-} from "react-bootstrap";
+import { useHistory, useParams } from "react-router";
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
-
-import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
