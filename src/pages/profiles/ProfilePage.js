@@ -103,7 +103,7 @@ function ProfilePage() {
         </>
     );
 
-    const SearchBar = (
+    const loggedInSearchBar = (
         <>
             <Row>
                 <Col className="p-0" md={8}>
@@ -132,36 +132,45 @@ function ProfilePage() {
         </>
     );
 
+    const loggedOutSearchBar = (
+        <>
+            <Row>
+                <Col className="p-0" lg={12}>
+                    <i className={`fas fa-search ${postStyles.SearchIcon}`} />
+                    <Form
+                        className={postStyles.SearchBar}
+                        onSubmit={(event) => event.preventDefault()}>
+                        <Form.Control
+                            value={query}
+                            onChange={(event) => setQuery(event.target.value)}
+                            type="text"
+                            className="mr-sm-2"
+                            placeholder="Search posts"
+                        />
+                    </Form>
+                </Col>
+            </Row>
+        </>
+    );
+
     return (
         <Row>
             <Col className="py-2 p-2 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
                 <Container className={`mb-3 ${appStyles.Content}`}>
                     <Container className="pt-3 pb-1">
-                        {hasLoaded ? (
-                            <>
-                                {mainProfile}
-                            </>
-                        ) : (
-                            <Asset spinner />
-                        )}
+                        {hasLoaded ? <>{mainProfile}</> : <Asset spinner />}
                     </Container>
                 </Container>
 
                 <Container className={`mb-3 ${appStyles.Content}`}>
                     <Container className="pt-3 pb-1">
-                        {SearchBar}
+                        {currentUser ? loggedInSearchBar : loggedOutSearchBar}
                     </Container>
                 </Container>
-               
+
                 <Container className={`pb-4 ${appStyles.Content}`}>
-                    {hasLoaded ? (
-                        <>
-                            {mainProfilePosts}
-                        </>
-                    ) : (
-                        <Asset spinner />
-                    )}
+                    {hasLoaded ? <>{mainProfilePosts}</> : <Asset spinner />}
                 </Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
