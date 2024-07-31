@@ -97,7 +97,9 @@ function PostsPage({ message, filter = "" }) {
 
     return (
         <Row className="h-100">
-            <h1>Home Inspiration - 'From House to Home'</h1>
+            <Col lg={12}>
+                <h1 className="text-center">For your Home Inspiration</h1>
+            </Col>
             <Col className="py-2 p-0 p-md-2" lg={8}>
                 <Container className={`mb-3 ${appStyles.Content}`}>
                     <Container className="pt-3 pb-1">
@@ -105,34 +107,33 @@ function PostsPage({ message, filter = "" }) {
                     </Container>
                 </Container>
 
-                    {hasLoaded ? (
-                        <>
-                            {posts.results.length ? (
-                                <InfiniteScroll
-                                    children={posts.results.map((post) => (
-                                        <Post
-                                            key={post.id}
-                                            {...post}
-                                            setPosts={setPosts}
-                                        />
-                                    ))}
-                                    dataLength={posts.results.length}
-                                    loader={<Asset spinner />}
-                                    hasMore={!!posts.next}
-                                    next={() => fetchMoreData(posts, setPosts)}
-                                />
-                            ) : (
-                                <Container className={appStyles.Content}>
-                                    <Asset src={NoResults} message={message} />
-                                </Container>
-                            )}
-                        </>
-                    ) : (
-                        <Container className={appStyles.Content}>
-                            <Asset spinner />
-                        </Container>
-                    )}
-
+                {hasLoaded ? (
+                    <>
+                        {posts.results.length ? (
+                            <InfiniteScroll
+                                children={posts.results.map((post) => (
+                                    <Post
+                                        key={post.id}
+                                        {...post}
+                                        setPosts={setPosts}
+                                    />
+                                ))}
+                                dataLength={posts.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!posts.next}
+                                next={() => fetchMoreData(posts, setPosts)}
+                            />
+                        ) : (
+                            <Container className={appStyles.Content}>
+                                <Asset src={NoResults} message={message} />
+                            </Container>
+                        )}
+                    </>
+                ) : (
+                    <Container className={appStyles.Content}>
+                        <Asset spinner />
+                    </Container>
+                )}
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <p></p>
