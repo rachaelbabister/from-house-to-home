@@ -4,13 +4,15 @@ import { Route, Switch } from "react-router-dom";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import "./api/axiosDefaults";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
 import PostEditForm from "./pages/posts/PostEditForm";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -64,6 +66,11 @@ function App() {
                         exact
                         path="/posts/:id/edit"
                         render={() => <PostEditForm />}
+                    />
+                    <Route
+                        exact
+                        path="/profiles/:id"
+                        render={() => <ProfilePage />}
                     />
                     <Route
                         exact
