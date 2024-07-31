@@ -55,10 +55,11 @@
 .UnFollow {
     font-size: 15px;
     font-weight: 600;
-    background-color: #d77a61;
+    background-color: #d77a61 !important;
+    color: #f5f5f5;
 }
 
 .UnFollow:hover {
-    background-color: #566967;
-    color: #f5f5f5;
+    background-color: #b3cbb5 !important;
+    color: #254441;
 }

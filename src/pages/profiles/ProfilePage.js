@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import Asset from "../../components/Asset";
-import NoResults from "../../assets/search.webp"
+import NoResults from "../../assets/search.webp";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
@@ -29,7 +29,7 @@ function ProfilePage() {
     const currentUser = useCurrentUser();
     const { id } = useParams();
 
-    const setProfileData = useSetProfileData();
+    const { setProfileData, handleFollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
@@ -87,14 +87,14 @@ function ProfilePage() {
                         !is_owner &&
                         (profile?.following_id ? (
                             <Button
-                                className={`${btnStyles.Button} ${btnStyles.Unfollow}`}
+                                className={`${btnStyles.Button} ${btnStyles.UnFollow}`}
                                 onClick={() => {}}>
                                 unfollow
                             </Button>
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Follow}`}
-                                onClick={() => {}}>
+                                onClick={() => handleFollow(profile)}>
                                 follow
                             </Button>
                         ))}
