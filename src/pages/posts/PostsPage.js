@@ -11,7 +11,7 @@ import Asset from "../../components/Asset";
 import CategorySearch from "../../components/CategorySearch";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
-import btnStyles from "../../styles/Buttons.module.css"
+import btnStyles from "../../styles/Buttons.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -30,7 +30,6 @@ function PostsPage({ message = "" }) {
     const [query, setQuery] = useState("");
     const [filter, setFilter] = useState("");
 
-
     const loggedInSearchBar = (
         <>
             <Row>
@@ -47,16 +46,16 @@ function PostsPage({ message = "" }) {
                             placeholder="Search posts"
                         />
                     </Form>
-                    {pathname !== "/liked" && pathname !== "/feed" && (
-                            <CategorySearch mobile setFilter={setFilter} />
-                        )}
+                    <CategorySearch mobile setFilter={setFilter} />
                 </Col>
                 <Col className="pt-2 text-center text-md-right" md={4}>
                     <NavLink
                         className={`${styles.NavLink} ${btnStyles.AddNew}`}
                         activeClassName={styles.Active}
                         to="/posts/create">
-                        <i className={`fa-solid fa-square-plus ${btnStyles.AddNewIcon}`}></i>New Post
+                        <i
+                            className={`fa-solid fa-square-plus ${btnStyles.AddNewIcon}`}></i>
+                        New Post
                     </NavLink>
                 </Col>
             </Row>
@@ -87,21 +86,23 @@ function PostsPage({ message = "" }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
+                
+
                 const params = new URLSearchParams();
                 if (filter) params.append("category", filter);
                 if (query) params.append("search", query);
 
                 let endpoint = "/posts/";
-                if (pathname === "/feed") {
-                    endpoint = "/followed-posts/";
-                } else if (pathname === "/likes") {
-                    endpoint = "/liked-posts/";
+                if (pathname === "/feed/") {
+                    endpoint = "followed-posts/";
+                } else if (pathname === "/likes/") {
+                    endpoint = "liked-posts/";
                 }
 
                 const { data } = await axiosReq.get(
                     `${endpoint}?${params.toString()}`
                 );
-                setPosts({ ...data, results: data.results || [] });
+                setPosts(data);
                 setHasLoaded(true);
             } catch (err) {
                 // console.error(err);
