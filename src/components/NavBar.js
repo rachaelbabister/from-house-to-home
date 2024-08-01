@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/FromHouseToHome-logo.jpg";
 import styles from "../styles/NavBar.module.css";
+import ToolTip from "../components/ToolTip";
 import { NavLink } from "react-router-dom";
 import {
     useCurrentUser,
@@ -12,7 +13,6 @@ import {
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
-
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
@@ -50,13 +50,18 @@ const NavBar = () => {
                 to="/likes">
                 <i className="fa-solid fa-heart"></i>Liked
             </NavLink>
-            <NavLink
-                className={styles.NavLink}
-                to={`/profiles/${currentUser?.profile_id}`}>
-                <i className="fa-regular fa-circle-user"></i>Profile
-            </NavLink>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
                 <i className="fa-solid fa-right-from-bracket"></i>Sign out
+            </NavLink>
+            <NavLink
+                className={`${styles.NavLink} ${styles.Hello}`}
+                to={`/profiles/${currentUser?.profile_id}`}>
+                <ToolTip
+                    id="tt-hello"
+                    title="View or Edit your Profile"
+                    placement="top">
+                <i className={`${styles.Icon} fa-regular fa-circle-user`}></i>Hello {currentUser?.username}
+                </ToolTip>
             </NavLink>
         </>
     );

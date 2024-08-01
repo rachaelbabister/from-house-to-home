@@ -9,3 +9,17 @@
 .Active i {
     color: #566967;
 }
+
+.Hello {
+    color: #d77a61;
+    font-weight: bold;
+}
+
+.Hello:hover {
+    color: #b3cbb5;
+}
+
+.Icon {
+    color: #566967;
+    font-weight: bold;
+}
