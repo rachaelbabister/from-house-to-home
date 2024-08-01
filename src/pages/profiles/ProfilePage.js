@@ -48,7 +48,9 @@ function ProfilePage() {
                 const [{ data: pageProfile }, { data: profilePosts }] =
                     await Promise.all([
                         axiosReq.get(`/profiles/${id}`),
-                        axiosReq.get(`/posts/?owner__profile=${id}&search=${query}`),
+                        axiosReq.get(
+                            `/posts/?owner__profile=${id}&search=${query}`
+                        ),
                     ]);
                 setProfileData((prevState) => ({
                     ...prevState,
@@ -90,7 +92,16 @@ function ProfilePage() {
                             <div className={styles.ProfileInfo}>following</div>
                         </Col>
                     </Row>
+                    <Row noGutters className="px-3 justify-content-center">
+                    <Col className="text-center">
+                        <h3 className={styles.ProfileHeaders}>About me</h3>
+                        <div className={styles.ProfileInfo}>
+                            {profile?.description}
+                        </div>
+                    </Col>
+                </Row>
                 </Col>
+
                 <Col lg={3} className="text-lg-right">
                     {currentUser &&
                         !is_owner &&

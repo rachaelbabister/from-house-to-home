@@ -27,10 +27,10 @@ const ProfileEditForm = () => {
 
     const [profileData, setProfileData] = useState({
         name: "",
-        content: "",
+        description: "",
         image: "",
     });
-    const { name, content, image } = profileData;
+    const { name, description, image } = profileData;
 
     const [errors, setErrors] = useState({});
 
@@ -39,8 +39,8 @@ const ProfileEditForm = () => {
             if (currentUser?.profile_id?.toString() === id) {
                 try {
                     const { data } = await axiosReq.get(`/profiles/${id}`);
-                    const { name, content, image } = data;
-                    setProfileData({ name, content, image });
+                    const { name, description, image } = data;
+                    setProfileData({ name, description, image });
                 } catch (err) {
                     // console.log(err);
                     history.push("/");
@@ -64,14 +64,14 @@ const ProfileEditForm = () => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("name", name);
-        formData.append("content", content);
+        formData.append("description", description);
 
         if (imageFile?.current?.files[0]) {
             formData.append("image", imageFile?.current?.files[0]);
         }
 
         try {
-            const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
+            const { data } = await axiosReq.put(`/profiles/${id}`, formData);
             setCurrentUser((currentUser) => ({
                 ...currentUser,
                 profile_image: data.image,
@@ -86,17 +86,17 @@ const ProfileEditForm = () => {
     const textFields = (
         <>
             <Form.Group>
-                <Form.Label>Bio</Form.Label>
+                <Form.Label>About me</Form.Label>
                 <Form.Control
                     as="textarea"
-                    value={content}
+                    value={description}
                     onChange={handleChange}
-                    name="content"
+                    name="description"
                     rows={7}
                 />
             </Form.Group>
 
-            {errors?.content?.map((message, idx) => (
+            {errors?.description?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
@@ -139,6 +139,7 @@ const ProfileEditForm = () => {
                             </div>
                             <Form.File
                                 id="image-upload"
+                                className="d-none"
                                 ref={imageFile}
                                 accept="image/*"
                                 onChange={(e) => {
