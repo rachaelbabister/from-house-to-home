@@ -52,8 +52,7 @@ function PostEditForm() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch(
-                    "https://home-api-58bb6b7692c8.herokuapp.com/category/"
+                const response = await fetch("https://home-api-58bb6b7692c8.herokuapp.com/category/"
                 );
                 const data = await response.json();
                 if (Array.isArray(data.results)) {

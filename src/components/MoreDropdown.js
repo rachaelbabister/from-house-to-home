@@ -21,17 +21,18 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     return (
         <Dropdown className={`ml-auto pr-3 ${styles.Absolute}`} drop="left">
             <Dropdown.Toggle as={ThreeDots} />
+            
             <Dropdown.Menu>
                 <Dropdown.Item
                     onClick={handleEdit}
                     aria-label="edit-image">
-                    <i className="fas fa-pen-to-square" /><span className={styles.EditMenu}>edit post</span>
+                    <i className="fas fa-pen-to-square" />edit post
                 </Dropdown.Item>
                 <Dropdown.Item
                     onClick={handleDelete}
                     aria-label="delete post">
                     <i
-                        className="fas fa-trash" /><span className={styles.EditMenu}>delete post</span>
+                        className="fas fa-trash" />delete post
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
@@ -48,7 +49,7 @@ export const ProfileEditDropdown = ({ id }) => {
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /><span className={styles.EditMenu}>edit profile</span>
+          <i className="fas fa-edit" />edit profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}

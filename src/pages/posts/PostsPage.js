@@ -8,8 +8,10 @@ import Container from "react-bootstrap/Container";
 
 import Post from "./Post";
 import Asset from "../../components/Asset";
+import CategorySearch from "../../components/CategorySearch";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
+import btnStyles from "../../styles/Buttons.module.css"
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -19,13 +21,15 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ message = "" }) {
     const currentUser = useCurrentUser();
     const [posts, setPosts] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
     const [query, setQuery] = useState("");
+    const [filter, setFilter] = useState("");
+
 
     const loggedInSearchBar = (
         <>
@@ -43,13 +47,16 @@ function PostsPage({ message, filter = "" }) {
                             placeholder="Search posts"
                         />
                     </Form>
+                    {pathname !== "/liked" && pathname !== "/feed" && (
+                            <CategorySearch mobile setFilter={setFilter} />
+                        )}
                 </Col>
                 <Col className="pt-2 text-center text-md-right" md={4}>
                     <NavLink
-                        className={styles.NavLink}
+                        className={`${styles.NavLink} ${btnStyles.AddNew}`}
                         activeClassName={styles.Active}
                         to="/posts/create">
-                        <i className="fa-solid fa-square-plus"></i>New Post
+                        <i className={`fa-solid fa-square-plus ${btnStyles.AddNewIcon}`}></i>New Post
                     </NavLink>
                 </Col>
             </Row>
@@ -80,13 +87,25 @@ function PostsPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
+                const params = new URLSearchParams();
+                if (filter) params.append("category", filter);
+                if (query) params.append("search", query);
+
+                let endpoint = "/posts/";
+                if (pathname === "/feed") {
+                    endpoint = "/followed-posts/";
+                } else if (pathname === "/likes") {
+                    endpoint = "/liked-posts/";
+                }
+
                 const { data } = await axiosReq.get(
-                    `/posts/?${filter}search=${query}`
+                    `${endpoint}?${params.toString()}`
                 );
-                setPosts(data);
+                setPosts({ ...data, results: data.results || [] });
                 setHasLoaded(true);
             } catch (err) {
-                // console.log(err);
+                // console.error(err);
+                setHasLoaded(true);
             }
         };
 
@@ -116,18 +135,18 @@ function PostsPage({ message, filter = "" }) {
                     <>
                         {posts.results.length ? (
                             <InfiniteScroll
-                                children={posts.results.map((post) => (
+                                dataLength={posts.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!posts.next}
+                                next={() => fetchMoreData(posts, setPosts)}>
+                                {posts.results.map((post) => (
                                     <Post
                                         key={post.id}
                                         {...post}
                                         setPosts={setPosts}
                                     />
                                 ))}
-                                dataLength={posts.results.length}
-                                loader={<Asset spinner />}
-                                hasMore={!!posts.next}
-                                next={() => fetchMoreData(posts, setPosts)}
-                            />
+                            </InfiniteScroll>
                         ) : (
                             <Container className={appStyles.Content}>
                                 <Asset src={NoResults} message={message} />

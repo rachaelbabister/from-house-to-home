@@ -4,17 +4,17 @@
     padding: 0px;
   }
   
-  .Absolute {
+.Absolute {
     position: absolute;
     right: 0;
     z-index: 99;
   }
 
-  .Icons {
+.Icons {
     font-size: 25px;
   }
 
-  .OrangeIcons {
+.OrangeIcons {
     font-size: 25px;
     color: #d77a61;
   }

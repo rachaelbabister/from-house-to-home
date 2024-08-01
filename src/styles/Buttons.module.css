@@ -1,3 +1,5 @@
+/* Generic buttons */
+
 .Button {
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -36,10 +38,14 @@
     width: 100%;
 }
 
+/* Cancel or delete something */
+
 .Delete {
     background-color: #d77a61;
     color: #f5f5f5;
 }
+
+/* Follow & Unfollow buttons */
 
 .Follow {
     font-size: 15px;
@@ -62,4 +68,17 @@
 .UnFollow:hover {
     background-color: #b3cbb5 !important;
     color: #254441;
+}
+
+/* Add new post button */
+
+.AddNew {
+    font-size: 18px;
+}
+
+.AddNewIcon {
+    font-size: 30px;
+    color: #d77a61;
+    vertical-align: middle;
+    margin-bottom: 2px;
 }
