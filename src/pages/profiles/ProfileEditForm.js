@@ -17,6 +17,7 @@ import {
 
 import btnStyles from "../../styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/ProfileEditForm.module.css";
 
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();
@@ -85,7 +86,7 @@ const ProfileEditForm = () => {
 
     const textFields = (
         <>
-            <Form.Group>
+            <Form.Group className={styles.FieldsContainer}>
                 <Form.Label>About me</Form.Label>
                 <Form.Control
                     as="textarea"
@@ -95,28 +96,40 @@ const ProfileEditForm = () => {
                     rows={7}
                 />
             </Form.Group>
-
-            {errors?.description?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => history.goBack()}>
-                cancel
-            </Button>
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                type="submit">
-                save
-            </Button>
+            <div className={styles.ButtonsContainer}>
+                {errors?.description?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+                <Button
+                    className={`${btnStyles.Button} ${btnStyles.Delete}`}
+                    onClick={() => history.goBack()}>
+                    cancel
+                </Button>
+                <Button className={btnStyles.Button} type="submit">
+                    save
+                </Button>
+            </div>
         </>
     );
 
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
+                <Row className="mb-4">
+                    <Col lg={{span: 8, offset: 2}} md={12} sm={12}>
+                        <Container className="text-center">
+                            <h1>Update your Profile</h1>
+                            <div className="py-2">
+                                Fill in or change the details below to update your
+                                profile. If you would like to change your
+                                profile picture, click on 'Change Image' then
+                                click 'Save'.
+                            </div>
+                        </Container>
+                    </Col>
+                </Row>
                 <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
                     <Container className={appStyles.Content}>
                         <Form.Group>
@@ -132,9 +145,9 @@ const ProfileEditForm = () => {
                             ))}
                             <div>
                                 <Form.Label
-                                    className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                                    className={`${btnStyles.Button} btn my-auto`}
                                     htmlFor="image-upload">
-                                    Change the image
+                                    Change image
                                 </Form.Label>
                             </div>
                             <Form.File
@@ -161,7 +174,8 @@ const ProfileEditForm = () => {
                     md={5}
                     lg={6}
                     className="d-none d-md-block p-0 p-md-2 text-center">
-                    <Container className={appStyles.Content}>
+                    <Container
+                        className={`${appStyles.Content} h-100 d-flex flex-column`}>
                         {textFields}
                     </Container>
                 </Col>

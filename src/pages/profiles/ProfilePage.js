@@ -92,14 +92,18 @@ function ProfilePage() {
                             <div className={styles.ProfileInfo}>following</div>
                         </Col>
                     </Row>
-                    <Row noGutters className="px-3 justify-content-center">
-                    <Col className="text-center">
-                        <h3 className={styles.ProfileHeaders}>About me</h3>
-                        <div className={styles.ProfileInfo}>
-                            {profile?.description}
-                        </div>
-                    </Col>
-                </Row>
+                    {profile?.description && (
+                        <Row className="px-3 justify-content-center">
+                            <Col className="text-center">
+                                <h3 className={styles.ProfileHeaders}>
+                                    About me
+                                </h3>
+                                <div className={styles.ProfileInfo}>
+                                    {profile?.description}
+                                </div>
+                            </Col>
+                        </Row>
+                    )}
                 </Col>
 
                 <Col lg={3} className="text-lg-right">
