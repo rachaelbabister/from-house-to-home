@@ -51,11 +51,30 @@ From House to Home is a social plafform designed for visitors to share their ins
     - [Profile Page](#profile-page)
     - [Edit Profile Page](#edit-profile-page)
     - [Comments](#comments)
+    - [Deleting a Post or Comment](#deleting-a-post-or-comment)
     - [Likes](#likes)
     - [Follows](#follows)
     - [Search Bar & Category Filter](#search-bar--category-filter)
     - [Empty Results](#empty-results)
     - [Page Not Found](#page-not-found)
+    - [Future Implementations](#future-implementations)
+- [**Technologies & Frameworks**](#technologies--frameworks)
+    - [Main Technologies](#main-technologies)
+    - [Frameworks & Libraries](#frameworks--libraries)
+- [**Deployment**](#deployment)
+    - [**Environment & Settings**](#environment--settings)
+    - [**Deploying to Heroku**](#deploying-to-heroku)
+    - [**Connecting the Frontend to the API**](#connecting-the-frontend-to-the-api)
+        - [**Add Client Origin URLs**](#add-client-origin-urls)
+        - [**Frontend Setup in Gitpod**](#frontend-setup-in-gitpod)
+        - [**Configure Axios**](#configure-axios)
+        - [**Use Axios in Your App**](#use-axios-in-your-app)
+    - [**Handle Changes**](#handle-changes)
+        - [**Redeploy After Changes**](#redeploy-after-changes)
+        - [**Static Files**](#static-files)
+    - [**Local Development**](#local-development)
+        - [**How to Fork**](#how-to-fork)
+        - [**How to Clone**](#how-to-clone)
 
 <!-- /TOC -->
 
@@ -133,7 +152,7 @@ Before work started on the build of the website, I created a Board of User Stori
 |                                          | As a Site Admin I can complete validator testing so that I know all the source code doesn't have any bugs.                            | • Site Admin runs automated validation tools or scripts to check the source code for errors, syntax issues, or non-compliance with coding standards.<br>• Validator testing covers HTML, CSS, and JavaScript code to ensure compliance with web standards and best practices.<br>• Site Admin resolves any identified issues or bugs and retests to ensure successful validation.     | MUST HAVE   |
 |                                          | As a Site Owner I can access a README file so that all information regarding the project is available once complete.                  | • A README file is included in the project repository.<br>• A README file provides comprehensive information about the project, including its purpose, features, and all testing completed.                                                                                                                                                                                           | MUST HAVE   |
 
---
+---
 
 # Design
 
@@ -189,7 +208,7 @@ Before implementing the website, I created [Wireframes for each page using Balsa
 
 ## Data Models & Relationsips
 
-[For ease of reference the data models and relationships created for the API are here.](https://github.com/rachaelbabister/from-house-to-home-api?tab=readme-ov-file#data-models)
+[For ease of reference the data models and relationships created for the API are here, along with the rest of the API README document.](https://github.com/rachaelbabister/from-house-to-home-api?tab=readme-ov-file#data-models)
 
 ---
 
@@ -308,6 +327,14 @@ Users can read comments on posts at any time, but are only able to post comments
 
 *Mobile Comments*
 
+## Deleting a Post or Comment
+
+As part of a defensive design component, users will be asked to confirm they want to delete a post or comment, on the off chance they hit delete by mistake. If they do want to continue with deletion they can confirm and will be redirected back to the previously visied page.
+
+![Confirm Deletion](docs/images/desktopfeatures/defensive.webp)
+
+*Confirm Deletion*
+
 ## Likes 
 
 All users can see that a post has been liked by a heart icon at the bottom of the post, with a number count next to it, however only those who are logged in are able to leave a like. Users can also click the heart again to unlike a post.
@@ -355,3 +382,143 @@ If a user tries to access a page that isn't valid, they will get a 404 Page Not 
 ![Empty Results](docs/images/desktopfeatures/404page.webp)
 
 *404 Page Not Found*
+
+## Future Implementations
+
+Unfortunately time was against me with this project, and I didn't have time to implement all the functionality I would have liked to. Future implementations would include:
+
+- Giving the logged in user nofifications of receiving a comment or like on their posts, getting a follow, and someone else commenting on a post they have commented on.  
+- The ability to have an online chat between online users.
+- A scroll to the top of the page button. With the infinite scrolling of the application, I think this would be ideal to have. However, users can access the menu at all times, so are able to navigate around the site easily.
+- A back button on the Posts Detail page that takes the user back to the point where they left the feed.
+- The ability to delete a profile.
+- Fine tuning the search functionalility so that results can also be filtered by date, and most liked.
+- I would like to have more flash messages that inform users of when an action has been successful, for example when they have submitted a post or a comment. I did install Toastify to try to implement this, but time didn't allow.
+
+---
+
+# **Technologies & Frameworks**
+
+## Main Technologies
+
+- HTML & CSS - to create the structure and add styling of the site.
+- JavaScript - for interaction with the site.
+- React - A JavaScript library for user interface.
+
+## Frameworks & Libraries
+
+- [Balsamiq](https://balsamiq.com/) - to create Wireframes.
+- [React Bootstrap](https://react-bootstrap.github.io/) - CSS framework to help build responsive websites.
+- [ChatGPT](https://openai.com/chatgpt) - to create a JSON file of all the recipes.
+- [Gitpod](https://www.gitpod.io/) - cross platform cloud IDE to deploy workspace environment to Github.
+- [Cloudinary](https://cloudinary.com/) - cloud based storage for images.
+- [Font Awesome](https://fontawesome.com/) - to use icons on the website.
+- [Github](https://github.com/) - to store and display all files and assets for the website.
+- [Google Fonts](https://fonts.google.com/) - to import the fonts used on the website.
+- [Google Image Search](https://images.google.com/) - to find images to upload test posts.
+- [Google Dev Tools](https://developer.chrome.com/docs/devtools/) - to troubleshoot, test and solve issues with any styling.
+- [Heroku](https://www.heroku.com/) - for hosting and deployment of the site.
+- [JSHint](https://jshint.com/) - to check JavaScript files for bugs.
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - to test the accessibility of the site.
+- [Lucid](https://lucid.co/) - to create my Data Models.
+- [Photoshop 2024](https://www.adobe.com/products/photoshop.html) - to optimise images for the website.
+- [W3C Markup Validator](https://validator.w3.org/) - to check the source code of my HTML files for any bugs.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - to check the source code of my CSS file for any bugs.
+- [Canva](https://www.canva.com/) - to help create the logo.
+- [Coolor](https://coolors.co/) - to help create the colour palette.
+
+---
+
+# **Deployment**
+
+Both Environment & Settings and Deploying to Heroku have been set up [within the API](https://github.com/rachaelbabister/from-house-to-home-api/blob/main/README.md#environment--settings), however I shall list the full deployment details here for easy reference.
+
+## **Environment & Settings**
+
+- In your IDE open your env.py file or create one in the main directory if it hasn't been created for you.
+- Having created your cloud-based database, add the DATABASE_URL value and a SECRET_KEY value to the env.py file.
+- Open the settings.py file and import the env.py file and the DATABASE_URL and SECRETKEY file paths.
+- Install Django and add to requirements.txt.
+- Create your project.
+- Add the STATIC files settings.
+- Create a file called Procfile (with a capital P) in the main directory,
+- For cloud-based image storage, add Cloudinary URL to env.py
+- Add Cloudinary libraries to INSTALLED APPS.
+- Add your IDE workspace and Heroku to ALLOWED_HOSTS.
+- Make migrations and migrate.
+- Create new Django project - *django-admin startproject <home_api>*.
+- Create Superuser (email can be left blank) - *python manage.py createsuperuser (username>email>password1>password2)*.
+- Create your apps - *python manage.py startapp <nameofapp>*.
+- Before you add, commit & push your files to GitHub, ensure DEBUG is set to False in your settings.py file.
+
+## **Deploying to Heroku**
+
+- Login or create an account on Heroku.com. Click 'New' and then 'Create New App'.
+- Give your project a unique name and select a region, then click 'Create App'.
+- Connect your Heroku project to your GitHub repository. Under deployment you can choose GitHub, find the relevant one and click 'Connect.
+- Once connected, go to the Settings tab and click on 'Reveal Config Vars'. Add the environment key & value variables used above in your env.py file (CLOUDINARY_URL, DATABASE_URL & SECRET_KEY).
+- Next add DISABLE_COLLECTSTATIC and add 1 if this is to be disabled to prevent errors, or 0 if the app is in a state where errors will not be generated.
+- Click on Buildpack further down and click Add Buildpack to confirm Heroku buildpack is present.
+- Navigate to the Deploy section, click on Github for the deployment method and confirm.
+- Search for your repository name and click connect.
+- At the bottom of the deploy section, make sure you are connected to the main branch and then click Deploy Branch.
+- You can then view your live site.
+
+## **Connecting the Frontend to the API**
+
+### **Add Client Origin URLs**
+- In Heroku, go to your API app’s 'Settings'.
+- Add Config Vars for frontend URLs:
+    - **Key:** 'CLIENT_ORIGIN'
+    - **Value:** Your deployed React app URL, in this instance https://from-house-to-home-b7afcfcc32e9.herokuapp.com/.
+    - **Key:** 'CLIENT_ORIGIN_DEV'.
+    - **Value:** Your Gitpod preview link, without the the trailing slash.
+
+### **Frontend Setup in Gitpod**
+- In your Frontend Gitpod workspace:
+  - Install Axios:
+    - Run 'npm install axios' in the terminal.
+  - Create a folder called 'api' create a file named 'axiosDefaults.js' inside.
+
+### **Configure Axios**
+- Import Axios in 'axiosDefaults.js':
+    ```javascript
+    import axios from 'axios';
+    ```
+- Set up Axios:
+    ```javascript
+    axios.defaults.baseURL = 'https://home-api-58bb6b7692c8.herokuapp.com/';
+    axios.defaults.headers['Content-Type'] = 'multipart/form-data';
+    axios.defaults.withCredentials = true;
+    ```
+### **Use Axios in Your App**
+- Import 'axiosDefaults.js' into your 'App.js'.
+
+## **Handle Changes**
+
+### **Redeploy After Changes**
+- If you update any files, push changes to GitHub.
+- Manually redeploy on Heroku if automatic deploys are not enabled.
+
+### **Static Files**
+- After changing static files, make sure to 'collectstatic' them and push to GitHub for updates.
+
+## **Local Development**
+
+### **How to Fork**
+
+To fork a repository on Github, follow these steps:
+
+- Log in to Github - or step up a new account.
+- Click on the repository name.
+- Click the Fork button in the top right corner.
+
+### **How to Clone**
+
+To clone a repository on Github, follow these steps:
+
+- Log in to Github - or step up a new account.
+- Find or create your repository.
+- Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and paste the link you copied in step 3. Press enter.
