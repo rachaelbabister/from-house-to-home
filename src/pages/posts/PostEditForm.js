@@ -52,7 +52,8 @@ function PostEditForm() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://home-api-58bb6b7692c8.herokuapp.com/category/"
+                const response = await fetch(
+                    "https://home-api-58bb6b7692c8.herokuapp.com/category/"
                 );
                 const data = await response.json();
                 if (Array.isArray(data.results)) {
@@ -169,6 +170,13 @@ function PostEditForm() {
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
+                <Container className="text-center">
+                    <h1 className={appStyles.Heading}>Update your Post</h1>
+                    <div className="py-2">
+                        Update the details below and click 'Save' to update your
+                        post.
+                    </div>
+                </Container>
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Container
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>

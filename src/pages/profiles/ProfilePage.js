@@ -177,10 +177,12 @@ function ProfilePage() {
                 </Col>
                 <Col className="pt-2 text-center text-md-right" md={4}>
                     <NavLink
-                        className={styles.NavLink}
+                        className={`${styles.NavLink} ${btnStyles.AddNew}`}
                         activeClassName={styles.Active}
                         to="/posts/create">
-                        <i className="fa-solid fa-square-plus"></i>New Post
+                        <i
+                            className={`fa-solid fa-square-plus ${btnStyles.AddNewIcon}`}></i>
+                        New Post
                     </NavLink>
                 </Col>
             </Row>
