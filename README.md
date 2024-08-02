@@ -43,6 +43,19 @@ From House to Home is a social plafform designed for visitors to share their ins
     - [Data Models & Relationsips](#data-models--relationsips)
 - [Features](#features)
     - [General features](#general-features)
+    - [Landing Page](#landing-page)
+    - [Sign Up & Sign In](#sign-up--sign-in)
+    - [Home Page after Sign In](#home-page-after-sign-in)
+    - [Create a Post](#create-a-post)
+    - [Edit a Post](#edit-a-post)
+    - [Profile Page](#profile-page)
+    - [Edit Profile Page](#edit-profile-page)
+    - [Comments](#comments)
+    - [Likes](#likes)
+    - [Follows](#follows)
+    - [Search Bar & Category Filter](#search-bar--category-filter)
+    - [Empty Results](#empty-results)
+    - [Page Not Found](#page-not-found)
 
 <!-- /TOC -->
 
@@ -191,3 +204,154 @@ Before implementing the website, I created [Wireframes for each page using Balsa
 - Users are able to Create, Read, Update and Delete (CRUD) their posts and comments.
 - All pages show the site branding with a logo and styling to match. The site is responsive across different devices.
 
+## Landing Page
+
+All posts are immediately able to be seen for ease of viewing and to give a better user experience. The navbar sticks to the top of the page, so users are able to choose the option to sign up or sign in at all times. In desktop view they are also able to see a list of other registered users, and they can click on the icons to see their profile page, but they are unable to interact until they have signed in. On the landing page, other user profiles are hidden to give a better experience on a smaller screen.
+
+![Desktop Landing Page](docs/images/desktopfeatures/landingpage.webp)
+
+*Desktop Landing Page before sign up or sign in*
+
+![Mobile Landing Page](docs/images/mobilefeatures/mob-landingpage.webp)
+
+*Mobile Landing Page before sign up or sign in*
+
+## Sign Up & Sign In
+
+A quick and simple sign up form so that users can get posting straight away. Once they have created their account they get directed to the sign in page to login, where they then get directed to the home page.
+
+![Desktop Sign Up Page](docs/images/desktopfeatures/signup.webp)
+
+*Desktop Sign Up Page*
+
+![Desktop Sign In Page](docs/images/desktopfeatures/signin.webp)
+
+*Desktop Sign In Page*
+
+![Mobile Sign Up and Sign In Pages](docs/images/mobilefeatures/mob-signinup.webp)
+
+*Mobile Sign Up and Sign In Pages*
+
+## Home Page after Sign In
+
+Once users are signed in, they get taken to the home page but now have more options to add a new post, follow other profiles (on desktop only) and within the navbar there are also buttons to view 'Friends' they are following and posts they have 'Liked'. They can also visibly see their username, giving indication that they are signed in. This button would take them to their profile page.
+
+![Desktop Home Page](docs/images/desktopfeatures/homepage-loggedin.webp)
+
+*Desktop Home Page after sign in*
+
+![Mobile Home Page](docs/images/mobilefeatures/mob-togglemenu.webp)
+
+*Mobile Home Page after sign in showing toggle menu*
+
+## Create a Post
+
+By clicking on the New Post button users get taken to a simple upload page. They will get error messages if they miss out adding an image or a title, but content and category are optional fields. They will also get error messages if the image is too large. Once they click 'Post', they get directed to the posts detail where they have the option to edit, delete or comment on it.
+
+![Desktop Create a Post Page](docs/images/desktopfeatures/createpost.webp)
+
+*Desktop Create a Post Page*
+
+![Mobile Create a Post Page](docs/images/mobilefeatures/mob-createpost.webp)
+
+*Mobile Create a Post Page*
+
+## Edit a Post
+
+On the Posts detail page a user can click on the three dots to bring up a menu to edit or delete their post. On a mobile they can also see a few other users to select and view their Profiles if they wish. To edit their post, just can just update any information and click 'Save'. If they want to delete a post, when they select delete on the drop down they will get a pop up asking to confirm before it gets deleted.
+
+![Desktop Menu to Edit a Post Page](docs/images/desktopfeatures/dropdowneditpost.webp)
+
+*Desktop Menu to Edit or Delete a Post*
+
+![Desktop Edit a Post Page](docs/images/desktopfeatures/updatepost.webp)
+
+*Desktop Edit a Post Page*
+
+![Mobile Edit a Post Page](docs/images/mobilefeatures/mob-updatepost.webp)
+
+*Mobile Edit a Post Page*
+
+## Profile Page
+
+A Profile is automatically created for the user once they sign up, and can be accessed by clicking on their username in the navbar. Profile pages can be viewed by anyone on the site, but only the owner of a profile can edit it. Users are able to edit their profile once signed in by clicking on the three dots. It will give them the option to edit profile or change their username or password. 
+
+![Desktop Profile Page](docs/images/desktopfeatures/profilepage.webp)
+
+*Desktop Profile Page*
+
+![Mobile Profile Page](docs/images/mobilefeatures/mob-profile.webp)
+
+*Mobile Profile Page*
+
+## Edit Profile Page
+
+Clicking on edit profile will take the user to a page where they can upload their own profile picture (the green avatar is the default picture) and include a bit about themselves. If the About Me is left blank nothing appears on their profile page, but that is optional. They are also given the option to update their username or password.
+
+![Desktop Edit Profile Page](docs/images/desktopfeatures/updateprofile.webp)
+
+*Desktop Edit Profile Page*
+
+![Mobile Edit Profile Page](docs/images/mobilefeatures/mob-updateprofile.webp)
+
+*Mobile Edit Profile Page*
+
+## Comments 
+
+Users can read comments on posts at any time, but are only able to post comments when they are signed in. They will also have the option to edit or delete their comments while signed in. There is also a comment count on each post, so users can easily see when scrolling the feed whether comments have been made or not.
+
+![Desktop Comments](docs/images/desktopfeatures/comments.webp)
+
+*Desktop Comments*
+
+![Mobile Comments](docs/images/mobilefeatures/mob-comments.webp)
+
+*Mobile Comments*
+
+## Likes 
+
+All users can see that a post has been liked by a heart icon at the bottom of the post, with a number count next to it, however only those who are logged in are able to leave a like. Users can also click the heart again to unlike a post.
+
+![Desktop Comments](docs/images/desktopfeatures/likes.webp)
+
+*Desktop Likes*
+
+![Mobile Comments](docs/images/mobilefeatures/mob-likes.webp)
+
+*Mobile Likes*
+
+## Follows 
+
+Users can follow and unfollow other users by clicking on the button next to their profile on the home page, or by navigating to their profile page and selecting follow from there. Another click of the button will unfollow them. 
+
+![Desktop Comments](docs/images/desktopfeatures/follows.webp)
+
+*Desktop Likes*
+
+![Mobile Comments](docs/images/mobilefeatures/mob-follows.webp)
+
+*Mobile Likes*
+
+## Search Bar & Category Filter 
+
+When viewing all posts on the home, viewers are able to search for posts by keyword in the search bar, or select the drop down menu to filter the posts by a category. 
+
+![Search Bar & Category Filter](docs/images/desktopfeatures/categoryfilter.webp)
+
+*Search Bar & Category Filter*
+
+## Empty Results
+
+If a user visits the 'Friends' or 'Liked' pages but hasn't followed any profiles or liked any posts, then these will give an empty feed. 
+
+![Empty Results](docs/images/desktopfeatures/noposts.webp)
+
+*Empty Results*
+
+## 404 Page Not Found
+
+If a user tries to access a page that isn't valid, they will get a 404 Page Not Found error.
+
+![Empty Results](docs/images/desktopfeatures/404page.webp)
+
+*404 Page Not Found*
