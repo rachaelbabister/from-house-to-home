@@ -118,12 +118,14 @@ const ProfileEditForm = () => {
         <Form onSubmit={handleSubmit}>
             <Row>
                 <Row className="mb-4">
-                    <Col lg={{span: 8, offset: 2}} md={12} sm={12}>
+                    <Col lg={{ span: 8, offset: 2 }} md={12} sm={12}>
                         <Container className="text-center">
-                            <h1>Update your Profile</h1>
+                            <h1 className={appStyles.Heading}>
+                                Update your Profile
+                            </h1>
                             <div className="py-2">
-                                Fill in or change the details below to update your
-                                profile. If you would like to change your
+                                Fill in or change the details below to update
+                                your profile. If you would like to change your
                                 profile picture, click on 'Change Image' then
                                 click 'Save'.
                             </div>

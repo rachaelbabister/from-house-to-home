@@ -3,8 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import appStyles from "../App.module.css"
-import styles from "../styles/PostsPage.module.css"
+import appStyles from "../App.module.css";
+import styles from "../styles/PostsPage.module.css";
+import PropTypes from "prop-types";
 
 const CategorySearch = ({ setFilter, mobile }) => {
     const [category, setCategories] = useState([]);
@@ -16,7 +17,7 @@ const CategorySearch = ({ setFilter, mobile }) => {
                 const data = await response.json();
                 setCategories(data.results || []);
             } catch (err) {
-                // Console.log(err);
+                // console.error(err);
             }
         };
 
@@ -32,22 +33,27 @@ const CategorySearch = ({ setFilter, mobile }) => {
                 <Col xs={12} md="auto">
                     <Form.Group controlId="categorySelect" className="mb-0">
                         <Form.Control
-                    as="select"
-                    onChange={(e) => setFilter(e.target.value)}
-                    defaultValue=""
-                >
-                    <option value="">All Categories</option>
-                    {category.map((category) => (
-                    <option key={category.id} value={category.id}>
-                        {category.name}
-                    </option>
-                    ))}
-                </Form.Control>
-                </Form.Group>
+                            as="select"
+                            onChange={(e) => setFilter(e.target.value)}
+                            defaultValue=""
+                        >
+                            <option value="">All Categories</option>
+                            {category.map((category) => (
+                                <option key={category.id} value={category.id}>
+                                    {category.name}
+                                </option>
+                            ))}
+                        </Form.Control>
+                    </Form.Group>
                 </Col>
             </Row>
         </Container>
     );
+};
+
+CategorySearch.propTypes = {
+    setFilter: PropTypes.func.isRequired,
+    mobile: PropTypes.bool
 };
 
 export default CategorySearch;

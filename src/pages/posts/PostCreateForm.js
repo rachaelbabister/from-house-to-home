@@ -40,7 +40,9 @@ function PostCreateForm() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://home-api-58bb6b7692c8.herokuapp.com/category/");
+                const response = await fetch(
+                    "https://home-api-58bb6b7692c8.herokuapp.com/category/"
+                );
                 const data = await response.json();
                 if (Array.isArray(data.results)) {
                     setCategories(data.results);
@@ -158,11 +160,12 @@ function PostCreateForm() {
                 <Row className="mb-4">
                     <Col lg={{ span: 8, offset: 2 }} md={12} sm={12}>
                         <Container className="text-center">
-                            <h1>Create a Post</h1>
+                            <h1 className={appStyles.Heading}>Create a Post</h1>
                             <div className="py-2">
-                                To share your inspiration photos, select your image, fill in the
-                                Title and Content, seleting a relevant category
-                                if appropriate, and then click 'Post'.
+                                To share your inspiration photos, select your
+                                image, fill in the Title and Content, seleting a
+                                relevant category if appropriate, and then click
+                                'Post'.
                             </div>
                         </Container>
                     </Col>

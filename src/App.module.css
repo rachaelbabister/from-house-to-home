@@ -2,7 +2,7 @@
     font-family: "Quattrocento", serif;
     background-color: #f5f5f5;
     min-height: 100vh;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .Main {
@@ -63,4 +63,21 @@ a:hover i {
 .Content {
     background-color: #ffffff;
     padding: 10px;
+}
+
+.Heading {
+    font-size: 35px;
+}
+
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
+    .Heading {
+        font-size: 40px;
+    }
+
+    .App {
+        font-size: 1.1rem;
+    }
 }

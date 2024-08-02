@@ -59,7 +59,7 @@ function PostEditForm() {
                     setCategories(data.results);
                 }
             } catch (err) {
-                console.error("Failed to fetch categories", err);
+                // console.error("Failed to fetch categories", err);
             }
         };
 
