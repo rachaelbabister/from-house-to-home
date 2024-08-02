@@ -66,18 +66,26 @@ a:hover i {
 }
 
 .Heading {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 
-/* Media query: tablets and larger (768px and up) */
-@media screen and (min-width: 768px) {
+/* Media query: tablets and larger (540px and up) */
+@media screen and (min-width: 540px) {
 
     .Heading {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     .App {
         font-size: 1.1rem;
+    }
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+
+    .Heading {
+        font-size: 40px;
     }
 }

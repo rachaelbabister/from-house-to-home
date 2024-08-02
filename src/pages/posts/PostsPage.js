@@ -117,7 +117,7 @@ function PostsPage({ message = "" }) {
     return (
         <Row className="h-100">
             <Col lg={12}>
-                <h1 className="text-center">For your Home Inspiration</h1>
+                <h1 className={`text-center ${appStyles.Heading}`}>For your Home Inspiration</h1>
             </Col>
             <Col className="py-2 p-0 p-md-2" lg={8}>
                 <Container className={`mb-3 ${appStyles.Content}`}>
