@@ -57,10 +57,12 @@ From House to Home is a social plafform designed for visitors to share their ins
     - [Search Bar & Category Filter](#search-bar--category-filter)
     - [Empty Results](#empty-results)
     - [Page Not Found](#page-not-found)
-    - [Future Implementations](#future-implementations)
+    - [Reusable](#reusable)
+- [Future Implementations](#future-implementations)
 - [**Technologies & Frameworks**](#technologies--frameworks)
     - [Main Technologies](#main-technologies)
     - [Frameworks & Libraries](#frameworks--libraries)
+- [**Testing**](#testing)
 - [**Deployment**](#deployment)
     - [**Environment & Settings**](#environment--settings)
     - [**Deploying to Heroku**](#deploying-to-heroku)
@@ -75,6 +77,10 @@ From House to Home is a social plafform designed for visitors to share their ins
     - [**Local Development**](#local-development)
         - [**How to Fork**](#how-to-fork)
         - [**How to Clone**](#how-to-clone)
+- [**Credits**](#credits)
+    - [**Help Resources**](#help-resources)
+    - [**Media**](#media)
+    - [**Acknowledgments**](#acknowledgments)
 
 <!-- /TOC -->
 
@@ -381,9 +387,11 @@ If a user tries to access a page that isn't valid, they will get a 404 Page Not 
 
 ![Empty Results](docs/images/desktopfeatures/404page.webp)
 
+## Reusable
+
 *404 Page Not Found*
 
-## Future Implementations
+# Future Implementations
 
 Unfortunately time was against me with this project, and I didn't have time to implement all the functionality I would have liked to. Future implementations would include:
 
@@ -429,9 +437,14 @@ Unfortunately time was against me with this project, and I didn't have time to i
 
 ---
 
+# **Testing**
+
+[Testing for the API can be found here in a separate file - TESTING.md](TESTING.md)
+___
+
 # **Deployment**
 
-Both Environment & Settings and Deploying to Heroku have been set up [within the API](https://github.com/rachaelbabister/from-house-to-home-api/blob/main/README.md#environment--settings), however I shall list the full deployment details here for easy reference.
+Both Environment & Settings and Deploying to Heroku have been set up [within the API](https://github.com/rachaelbabister/from-house-to-home-api/blob/main/README.md#environment--settings), however I shall list the full deployment details here for ease of reference.
 
 ## **Environment & Settings**
 
@@ -522,3 +535,35 @@ To clone a repository on Github, follow these steps:
 - Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 - Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 - Type 'git clone' into the terminal and paste the link you copied in step 3. Press enter.
+ 
+---
+# **Credits**
+
+## **Help Resources**
+
+- The [React Bootstrap website](https://react-bootstrap-v4.netlify.app/) was helpful for many things, including the NavBar, Cards, Dropdowns, and other layouts and components.
+- To help with the findDOMNode console error [I used this artcle from bobbhadz.com](https://bobbyhadz.com/blog/react-warning-finddomnode-is-deprecated-in-strict-mode) to help update my index.js file.
+- This article from [freecodecamp.org](https://www.freecodecamp.org/news/error-error-0308010c-digital-envelope-routines-unsupported-node-error-solved/) helped when I was receiving a particular error on my site.
+- [Stack Overflow](https://stackoverflow.com/questions/29349684/how-can-i-specify-the-required-node-js-version-in-package-json) helped when I was looking to specify my Node packages within package.json.
+- After reaching out to the Slack community for help with my category search, [Kelly Hurchison kindly shared her repo](https://github.com/quiltingcode/happening-react-frontend) for me to look as how she did hers.
+- I found [this extension from open-vsk.org](https://open-vsx.org/extension/huntertran/auto-markdown-toc) when doing a Google search for autocreating a Table of Contents for this README document.
+- I used the 'Moments' walkthrough to help with some setup and coding.
+- ChatGPT - to explain certain code and bugs I didn't understand.
+
+
+## **Media**
+
+The media used throughout the site has either come from other users who have uploaded their images when testing the site for me, or I have downloaded images Google Images to upload as a post.
+
+- The logo was designed by myself using Canva, with the house icon coming from their icon library.
+- The following images were downloaded from Google Images and then amended to match the sites colour palette.
+    - 'default-avata.webp' (uploaded on the API) - *the default image used on registration and until a user uploads their own profile image.
+    - 'search.webp' - *used when no results have been returned.*
+    - 'notfound.webp' - *used when visiting a url that isn't valid.
+    - 'upload.webp' - *used as a placeholder when uploading an image on a new post.*
+
+## **Acknowledgments**
+
+This has been a tough project and I've had some great support! The Slack Community, yet again, have been saviours, whether its been answering questions or the help already being out their when searching for things.
+
+The support of my friends and family has been incredible, from helping to do chores so that I could study, to being asked to yet again go through the site to give me feedback. Thank you, it's so appreciated.
