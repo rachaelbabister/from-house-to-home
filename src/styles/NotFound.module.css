@@ -2,3 +2,19 @@
     margin-top: 5vh;
     text-align: center;
   }
+
+  .Title {
+    font-size: 40px;
+    font-family: 'Cinzel', serif;
+    color: #254441;
+    font-weight: lighter;
+    text-transform: lowercase;
+  }
+
+  .SubTitle {
+    font-size: 25px;
+    font-family: 'Cinzel', serif;
+    color: #254441;
+    font-weight: lighter;
+    text-transform: lowercase;
+  }
