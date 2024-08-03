@@ -12,8 +12,8 @@
 - [**TESTING**](#testing)
 - [**CONTENTS**](#contents)
 - [**Manual Testing**](#manual-testing)
-- [**Validators**](#validators)
 - [**Bugs and Fixes**](#bugs-and-fixes)
+- [**Validators**](#validators)
 
 <!-- /TOC -->
 
@@ -73,12 +73,6 @@ Extensive manual testing was carried out to ensure the Frontend features worked 
 |                                         | Category dropdown menu to filter posts on Liked page | When selecting a category from the dropdown menu, only posts that have that category specified will show. | ❌ FAIL      | When adding the category dropdown box to the 'Friends' and 'Liked' pages, it caused an error whereby all posts are displayed, rather than just the ones that have been followed or liked. Time hasn't allowed for me to fix this so it has been 'hidden' from view on this page. |
 
 ---
-# **Validators**
-
-All CSS was put through [W3C CSS](https://jigsaw.w3.org/css-validator/#validate_by_input) and came back with no errors.
-
-
----
 
 # **Bugs and Fixes**
 
@@ -89,3 +83,12 @@ All CSS was put through [W3C CSS](https://jigsaw.w3.org/css-validator/#validate_
 - Search bar - seems to be skipping searching within the content, so not giving full search results. Updated the search_fields in the API>posts>serializers file to include 'content'.
 - Likes on Liked page BUG: Works on all pages, however when on 'Friends' & 'Liked', get a 'NaN' appear next to the icon when liking or unliking. I believe this has something to do with trying to refresh the page whilst on the Liked page and not being able to autorefresh. I had a quick look in the backend but time hasn't allowed for this bug to be fixed. Just means that users need to refresh the page for it to take effect.
 - Unfortunately time didn't allow for alert messages informing the user of successful login, commenting etc. to be included. Toastify was installed with this intention but it would now be a future implementation.
+
+---
+
+# **Validators**
+
+- All CSS was put through [W3C CSS](https://jigsaw.w3.org/css-validator/#validate_by_input) and came back with no errors.
+- Site was run through Wave and initially came up with a h1 and h4 error on the Not Found page, so the styles were edited to fix. Ran through again and came back with other errors on the Not Found page, however time hasn't allowed for these to be fixed so a screen shot of these has been shown below.
+
+![Wave Results](src/assets/waveresults.png)
